@@ -1,5 +1,13 @@
-export default function Stand ({}) {
+import { useDeck } from "../../context/DeckContext";
+
+export default function Stand() {
+    const { setPlayerTurn } = useDeck();
+
+    const handleStand = () => {
+        setPlayerTurn(false);
+    };
+
     return (
-        <button>Stand</button>
+        <button onClick={handleStand}>Stand</button>
     )
 }

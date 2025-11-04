@@ -1,3 +1,5 @@
+import getHandTotal from "./getHandTotal"
+
 export default function checkAce({hand}) {    
     const index = hand.findIndex(card => card.value === "A");
 

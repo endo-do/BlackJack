@@ -1,17 +1,24 @@
-import dealerDrawsNext from "./dealerDraws"
+import getHandTotal from "./getHandTotal"
 
-export default function checkWinner ({playerhand, dealerhand}) {
-    const playertotal = getHandTotal(playerhand)
-    const dealertotal = getHandTotal(dealerhand)
+export default function checkWinner({playerHand, dealerHand}) {
+    const playertotal = getHandTotal(playerHand)
+    const dealertotal = getHandTotal(dealerHand)
 
     if (dealertotal > 21) {
-        return 'win'
+        return 'Player Wins'
     }
 
     if (playertotal > 21) {
-        return 'loose'
+        return 'House Wins'
     }
-    
-    
 
+    if (dealertotal > playertotal) {
+        return 'House Wins'
+    }
+ 
+    if (dealertotal < playertotal) {
+        return 'Player Wins'
+    }
+ 
+    return 'Push'
 }
