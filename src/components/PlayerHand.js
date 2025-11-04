@@ -1,28 +1,26 @@
 import getCardValue from '../logic/getCardValue';
 import getHandTotal from '../logic/getHandTotal';
+import Card from './Card';
 
 export default function PlayerHand({ hand }) {
   // Show placeholder cards when hand is empty to maintain layout
   const displayHand = hand.length === 0 ? [{value: '', suit: ''}, {value: '', suit: ''}] : hand;
   
   return (
-    <div>
+    <div style={{ marginBottom: '2em' }}>
       <h2>Player</h2>
-      <p>
+      <div style={{ display: 'flex', flexWrap: 'nowrap', justifyContent: 'center', gap: '0.2em' }}>
         {displayHand.map((c, index) => (
-          <span 
-            key={index} 
+          <div 
+            key={`${c.value}-${c.suit}-${index}`}
             style={{ 
-              visibility: hand.length === 0 ? 'hidden' : 'visible',
-              display: 'inline-block',
-              minWidth: hand.length === 0 ? '2ch' : 'auto'
+              visibility: hand.length === 0 ? 'hidden' : 'visible'
             }}
           >
-            {index > 0 && ' '}
-            {c.value}{c.suit}{hand.length === 0 && '\u00A0'}
-          </span>
+            <Card card={c} />
+          </div>
         ))}
-      </p>
+      </div>
     </div>
   );
 }

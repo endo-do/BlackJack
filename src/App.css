@@ -1,5 +1,131 @@
 .App {
   text-align: center;
+  background-color: #000;
+  color: #fff;
+  min-height: 100vh;
+  position: relative;
+}
+
+.App h1,
+.App h2 {
+  color: #fff;
+}
+
+/* Button styles for dark mode */
+.App button {
+  background-color: #333;
+  color: #fff;
+  border: 2px solid #555;
+  padding: 0.5em 1em;
+  margin: 0.25em;
+  border-radius: 4px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.App button:hover {
+  background-color: #555;
+  border-color: #777;
+}
+
+.App button:active {
+  background-color: #444;
+}
+
+/* Bet and Bankroll display styles */
+.bet-display {
+  background-color: #333;
+  color: #fff;
+  border: 2px solid #555;
+  padding: 0.5em 1em;
+  border-radius: 4px;
+  font-size: 1em;
+  font-weight: bold;
+  text-align: center;
+  min-width: 0;
+}
+
+.bankroll-display-top {
+  display: flex;
+  justify-content: center;
+  gap: 1em;
+  margin-bottom: 1em;
+  flex-wrap: wrap;
+}
+
+.bankroll-display-top span {
+  background-color: #333;
+  color: #fff;
+  border: 2px solid #555;
+  padding: 0.5em 1em;
+  border-radius: 4px;
+  font-size: 1em;
+  font-weight: bold;
+}
+
+/* Card component styles */
+.card {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5em 0.75em;
+  margin: 0;
+  border-radius: 6px;
+  font-weight: bold;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  width: 2.5em;
+  height: 3.5em;
+  box-sizing: border-box;
+  background-color: #333;
+  border: 2px solid #fff;
+  color: #fff;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+.card-flip {
+  animation: cardFlip 0.6s ease-in-out;
+}
+
+@keyframes cardFlip {
+  0% {
+    transform: rotateY(180deg);
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    transform: rotateY(0deg);
+    opacity: 1;
+  }
+}
+
+.card-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  line-height: 1.2;
+}
+
+.card-suit {
+  font-size: 1.2em;
+}
+
+.card-red {
+  color: #ff6b6b;
+}
+
+.card-face-down {
+  background-color: #333;
+  color: white;
+  border: 2px solid #fff;
+}
+
+.card-face-down .card-content {
+  line-height: 1.2;
 }
 
 .App-logo {

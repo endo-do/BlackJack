@@ -7,6 +7,8 @@ export function DeckProvider({ children }) {
   const [dealerHand, setDealerHand] = useState([]);
   const [playerHand, setPlayerHand] = useState([]);
   const [playerTurn, setPlayerTurn] = useState(true);
+  const [bankroll, setBankroll] = useState(1000);
+  const [currentBet, setCurrentBet] = useState(0);
 
   return (
     <DeckContext.Provider
@@ -18,7 +20,11 @@ export function DeckProvider({ children }) {
         playerHand,
         setPlayerHand,
         playerTurn,
-        setPlayerTurn
+        setPlayerTurn,
+        bankroll,
+        setBankroll,
+        currentBet,
+        setCurrentBet
       }}
     >
       {children}
