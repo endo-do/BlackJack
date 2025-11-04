@@ -1,4 +1,4 @@
-import getCardValue from '../logic';
+import getCardValue from '../logic/getCardValue';
 
 export default function DealerHand({ hand }) {
   return (

@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from "react";
 import PlayerHand from './components/PlayerHand';
 import DealerHand from './components/DealerHand';
+import PlayerActions from "./components/PlayerActions";
 import logo from './logo.svg';
 import './App.css';
 
 
 function App() {
   
-  const [deck, setDeck] = React.useState([]);
+  var [deck, setDeck] = React.useState([]);
   const [playerhand, setPlayerHand] = React.useState([]);
   const [dealerhand, setDealerHand] = React.useState([]);
 
@@ -31,7 +32,6 @@ const createDeck = (numDecks = 4) => {
   const shuffledDeck = newDeck.sort(() => Math.random() - 0.5);
 
   setDeck(shuffledDeck);
-  console.log(`Created and shuffled ${numDecks} deck(s):`, shuffledDeck);
 };
 
   useEffect(() => {createDeck();}, []);
@@ -49,6 +49,8 @@ const createDeck = (numDecks = 4) => {
     setPlayerHand(playerCards);
     setDealerHand(dealerCards);
     setDeck(deck.slice(4));
+
+
   };
 
   return (
@@ -60,6 +62,8 @@ const createDeck = (numDecks = 4) => {
       <DealerHand hand={dealerhand} />
       
       <PlayerHand hand={playerhand} />
+
+      <PlayerActions />
     
     </div>
   );
